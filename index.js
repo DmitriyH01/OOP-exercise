@@ -5,7 +5,7 @@ class Mammal {
     this.saying = saying;
   }
   toString() {
-    return `${this.name}; ${this.gender}; ${this.saying}`;
+    return [this.name, this.gender, this.saying].join(';');
   }
 }
 
@@ -16,7 +16,7 @@ class Animal extends Mammal {
     this.legs = legs;
   }
   toString() {
-    return `${super.toString()}; ${this.species}; ${this.legs}`;
+    return [super.toString(), this.species, this.legs].join(';');
   }
 }
 
@@ -29,9 +29,13 @@ class Human extends Mammal {
     this.hands = hands;
   }
   toString() {
-    return `${super.toString()}; ${this.species}; ${this.legs}; ${
-      this.hands
-    }; ${this.friend}`;
+    return [
+      super.toString(),
+      this.species,
+      this.legs,
+      this.hands,
+      this.friend,
+    ].join(';');
   }
 }
 
@@ -42,7 +46,7 @@ class Cat extends Animal {
     this.friend = friend;
   }
   toString() {
-    return `${super.toString()}; ${this.friend}`;
+    return [super.toString(), this.friend].join(';');
   }
 }
 class Dog extends Animal {
@@ -52,7 +56,7 @@ class Dog extends Animal {
     this.friend = friend;
   }
   toString() {
-    return `${super.toString()}; ${this.friend}`;
+    return [super.toString(), this.friend].join(';');
   }
 }
 class Werewolf extends Human {
@@ -63,7 +67,7 @@ class Werewolf extends Human {
     this.transforms = transforms;
   }
   toString() {
-    return `${super.toString()}; ${this.transforms}`;
+    return [super.toString(), this.transforms].join(';');
   }
 }
 
