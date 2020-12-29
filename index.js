@@ -1,10 +1,11 @@
 class Mammal {
-  constructor(name, gender, friend, saying, species) {
+  constructor(name, gender, friend, saying, species, legs) {
     this.name = name;
     this.gender = gender;
     this.friend = friend;
     this.saying = saying;
     this.species = species;
+    this.legs = legs;
   }
   toString() {
     return [
@@ -13,6 +14,7 @@ class Mammal {
       this.friend,
       this.saying,
       this.species,
+      this.legs,
     ].join(';');
   }
 }
@@ -27,22 +29,20 @@ class Human extends Mammal {
     legs = 2,
     hands = 2
   ) {
-    super(name, gender, friend, saying, species);
-    this.legs = legs;
+    super(name, gender, friend, saying, species, legs);
     this.hands = hands;
   }
   toString() {
-    return [super.toString(), this.legs, this.hands].join(';');
+    return [super.toString(), this.hands].join(';');
   }
 }
 
 class Cat extends Mammal {
   constructor(name, gender, saying, friend, species = 'cat', legs = 4) {
-    super(name, gender, friend, saying, species);
-    this.legs = legs;
+    super(name, gender, friend, saying, species, legs);
   }
   toString() {
-    return [super.toString(), this.legs].join(';');
+    return super.toString();
   }
 }
 class Dog extends Mammal {
@@ -51,7 +51,7 @@ class Dog extends Mammal {
     this.legs = legs;
   }
   toString() {
-    return [super.toString(), this.legs].join(';');
+    return super.toString();
   }
 }
 class Werewolf extends Human {
